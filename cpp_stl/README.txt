@@ -1,0 +1,1 @@
+Effective C++ and STL Course - Focus on learning advance features of C++ and STL. Containers, iterators, and algorithms are covered.

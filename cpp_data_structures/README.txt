@@ -1,0 +1,1 @@
+Data Structures Course - Focus on building data structures from scratch in C++. Lists, stacks, queues, hash tables, and trees are covered.
