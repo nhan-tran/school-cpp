@@ -1,0 +1,77 @@
+
+CST 136 - Assignment 5
+
+
+----------
+
+Start with the Array & SafeArray template classes from assignment #3.
+If you want to use my assignment 3 solution as a starting point, you'll
+find it on the assignments web page. Make the following modifications/
+additions:
+
+  - Make sure the reference counting class and the Array & SafeArray
+    template classes support assignment correctly. Depending on your
+    implementation of your template classes, you may need operator=
+    defined for the array templates or the reference counting class
+    or both.
+
+  - Replace the set(), get(), and at() member functions with overloaded
+    array index operators [] to allow access to the class using
+    array indexing syntax. For example, the following statements should
+    be possible:
+
+      SafeArray<int>  values(10);
+
+      values[3]  =  123;
+
+      std::cout  <<  values[3];
+
+    For Array<> objects, operator[] should not provide bounds checking.
+    For SafeArray<> objects it should.
+
+    Note: array indexing must support both const and non-const accesses.
+    Non-const Array<>/SafeArray<> objects should allow read and write
+    operations.  Const Array<>/SafeArray<> objects should allow only
+    ready operations.
+
+  - Add a following definitions in your header file so that they're visible
+    to both your class template implementation and client code:
+
+    #define  ERR_BAD_BOUNDS     1
+    #define  ERR_MEM_ALLOC      2
+    #define  ERR_OUT_OF_BOUNDS  3
+
+    If the upper bound value specified to the constructor is less than
+    the lower bound value, throw an exception with an integer value of
+    ERR_BAD_BOUNDS.  Replace the current behavior of writing a message
+    and terminating the program.
+
+    If memory allocation fails inside any of your classes, throw
+    an exception with a integer value of ERR_MEM_ALLOC. Replace
+    the current behavior of writing a message and terminating
+    the program.
+
+    For SafeArray<> objects, if an out-of-bounds index value
+    is specified, throw an integer exception with a value of
+    ERR_OUT_OF_BOUNDS. Replace the current behavior of writing
+    a message and terminating the program.
+
+Send me updated versions of the source code for your template classes
+and the reference counter.
+
+
+A few of the thing's I'll be looking for in addition to what I was
+looking for in previous assignments:
+
+  - Proper overloading of operator[]
+
+  - Proper support for assignment
+
+  - Proper implementation of exception throwing.
+
+  - Good programming style (see the assignments web page for more information
+    on style).
+
+Hint: don't forget to test with a user-defined class type in addition
+to a built-in type to avoid "template euphoria". Also, don't forget
+to test your exception cases.

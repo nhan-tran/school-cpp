@@ -1,0 +1,215 @@
+
+
+CST 136 - Assignment 1
+
+
+
+----------
+
+In the workplace each developer commonly does not get the opportunity to fully
+implement an entire application. Rather, each engineer implements a portion of
+the functionality as a set of routines that become part of a library. Using C++,
+libraries of classes can be created that can be reused from project to project
+and/or shared across a project. When this is done, a header file (.h) is created
+that contains the class declaration and supporting non-member declarations, and
+a body file (.cpp) which contains the implementation of the class member
+functions and supporting non-member functionality. In this assignment you will
+create (and hand in) just such a class library.
+
+The class you will implement for this assignment will be the game engine for
+a game called "Flip It".
+
+---
+
+Here is the basic rules of the game:
+
+The game board consists a grid (rows and columns) of cells. Each cell can be
+one of two colors: solid or clear. The user will select a cell. This action will
+result in a pattern of nearby cells to switch colors. The goal is to select
+cells in the correct order so that the grid becomes totally clear.
+
+The game has the following user-selectable settings:
+
+  Number of rows: the number of rows of cells in the grid.
+
+  Number of columns: the number of columns of cells in the grid.
+
+  Game number: determines the starting point for setting up the game.
+
+  Complexity: determines the difficulty level for the game.
+
+  Pattern: determines which nearby grid positions have their color switched
+  when a cell is selected.
+
+  Wrap flag: an indication of whether patterns are cut-off by the grid
+  borders or "wrapped" to the other side of the grid.
+
+On the "assignments" web page, you'll find Windows .exe files for both a
+text-based and GUI-based version of the game. Use these programs to become
+familiar with the game and possible settings.
+
+---
+
+You are to provide the implementation for a class called FlipIt that provides
+the "engine" of the Flip It game. An "engine" is a set of routines (or a class)
+that provides processing functionality but not a user interface. In the
+case of the Flip It game, the FlipIt class provides the algorithms for the
+FlipIt game grid. Then client programs (which are provided for you) will use
+the FlipIt game engine to actually implement a playable game.
+
+A FlipIt object will be instantiated (by the client) for each game that is to
+being played. It will be constructed at the beginning of the game, and it
+will be destructed when the game is complete.
+
+I have provided source code for a text-based client program that you can
+use with your FlipIt class to implement the full game.
+
+---
+
+The public interface for the FlipIt class has been provided for you in the
+file flipIt.h. You are NOT to modify the public interface because the client
+functionality I've provided depends on the public interface not changing.
+
+The public interface is as follows:
+
+  FlipIt()  Constructor. The six settings for each game are provided as
+            parameters to the constructor. The constructor should do
+            whatever is necessary to setup the member data for a new
+            game. See the FAQ for more information about initializing a
+            new game.
+
+  numRows() Takes no parameters, returns the number of rows in the
+            game grid for the game.
+
+  numCols() Takes no parameters, returns the number of columns in the
+            game grid for the game.
+
+  click()   Parameters are zero-based row and column values. You can assume
+            that the row value is greater-than-or-equal-to zero AND
+            less-than the number of rows values passed into the construtor.
+            You can assume the column value is greater-than-or-equal-to zero
+            AND less-than the number of columns value passed into constructor.
+            This function should update the internal engine data based on
+            having the row,column grid position selected. It should take into
+            account pattern and wrap flag settings that were provided when
+            the FlipIt object was created.
+
+  fetch()   Parameters are zero-based row and column values. You can assume
+            that the row value is greater-than-or-equal-to zero AND
+            less-than the number of rows values passed into the construtor.
+            You can assume the column value is greater-than-or-equal-to zero
+            AND less-than the number of columns value passed into constructor.
+            This function returns whether or not the cell at the specified
+            grid position is currently clear or solid.
+
+  done()    No parameters. This function returns true if all grid positions
+            are clear (indicating the game is over). If any grid position
+            is solid, false should be returned.
+
+
+All member data and routines should be implemented in a flexible manner such
+that the grid size can be diferent from game to game by just providing differ
+row/column values to the constructor.
+
+---
+
+I've provide the flipit.h header file with the public section of the
+class declaration. You will need to modify this file to:
+  - include any headers needed by the class declaration
+  - implement any inline accessor functions
+  - declare the private member data/functions.
+
+Do NOT change the public interface since the client programs depend on this.
+
+You are to provide the implementation of the FlipIt class member functions
+in the file flipit.cpp.
+
+For this assignment you need to send me just the flipit.h and flipit.cpp
+files.
+
+---
+
+For the implementation of FlipIt class, you are to use a Grid class
+object as a member variable. The Grid provides memory management for
+flexible row/column grid system, where each cell of the grid can be
+in a state of either set (true) or clear (false).
+
+The declaraction and member function definitions (implementation) of
+the Grid class are provided for you on the assignments web page in the
+files grid.h and grid.cpp.  Do not modify these files.
+
+Additional documentation for the Grid class can be found in grid.h.
+
+A sample program (gridSamp.cpp) is provide for you on the assignments
+web page. This program shows how you will need to interact with the
+Grid class to set and clear cells.
+
+---
+
+Also, on the "assigments" web page you'll find source code for a text-based
+Flip It game client. This client code is made up of three files:
+
+  flipitDisplay.h    - game grid text-based display routines declarations
+  flipitDisplay.cpp  - game grid text-based display routines definitions
+  flipitMain.cpp     - text-based game main program
+
+Use these along with your flipit.h and flipit.cpp files and the provided
+grid.h and grid.cpp files to test your FlipIt class game engine.
+
+---
+
+In your implementation of this assignment, you must adhere to the
+following constraints:
+
+  - no public member variables allowed. All your member variables
+    should be private.
+
+  - you must use an object of type Grid as one of your member variables
+    inside your FlipIt class to keep track of the game board state.
+
+  - no pointers or dynamic memory. You do not need either of these
+    for this assignment and I do not want you to use them. If you don't
+    know how to do something in this assignment without pointers or
+    dynamic memory, ask me for suggestions.
+
+    Note: the Grid class uses a pointer member variable and dynamic
+    memory internally for it's implementation. But all of this is
+    encapsulated inside the Grid member functions. This is okay
+    because I'm providing this for you.
+
+  - you are not allowed to use global variables or static variables.
+    The entire assignment should be implemented using only local
+    variables, non-static member variables, and function parameters.
+
+---
+
+Things I'll specifically be looking for in this assignment:
+
+ - Correct functionality.
+ - Good use of header and body files
+ - Proper use of const for member functions AND supporting funtions
+   (this include function const-ness and parameter const-ness).
+ - Good use of encapsulation to hide implementation details from the
+   class interface.
+ - Good use of private member functions to hide implementation and
+   eliminate redundancy.
+ - Use of member initialitzation in the constructor.
+ - Good programming style
+     Modularity, naming conventions, commenting, no global variables
+     or goto statements, no magic numbers, etc.
+
+---
+
+Ask questions. If you don't understand the assignment, need assistance
+with designing algoirthms, language syntax, compile errors, or anything
+else related to implementing this assignment, don't hesitate to
+send me email or call me.
+
+---
+
+Some hints...
+
+Hint #1:  You should have not need to use an array anywhere in this
+          assignment.
+
+Hint #2:  Don't put off this assignment until the last minute.

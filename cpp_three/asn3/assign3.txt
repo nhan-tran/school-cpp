@@ -1,0 +1,134 @@
+
+CST 136 - Assignment 3
+
+
+
+----------
+
+For this assignment start with the Array and SafeArray classes you created
+in assignment #2. If you want to use my assignment 2 solution as a starting
+point for this assignment, you'll find my source code files on the
+"assignments" web page (if they're not posted yet, send me email and
+I'll send my assignment #2 solution to you ... if you've already sent
+me your assignment #2 solution).
+
+All requirements for Array and SafeArray remain the same as those from
+assignment #2 with the following additions/modifications:
+
+  - Change Array and SafeArray from classes to template classes so that
+    they support any data type for elements being stored in the array. The
+    following examples illustate creating/using the classes with various
+    data types:
+
+       Create an Array<> object that holds doubles and has index values of
+       0 to 10, and stores the value 3.14 at the 2nd index position:
+
+         Array<double>  values(10);
+
+         values.at(1)  =  3.14;   // read below for a description of the new at()
+                                  // member function.
+
+       Create a SafeArray<> object that holds Point objects and has index
+       values of 31 to 38, and stores the value 5,8 at the last valid index
+       position:
+
+         class Point { ... };   // a default ctor is assumed
+
+         SafeArray<Point>  data(38, 31);
+
+         data.at(38)  =  Point(5,8);
+
+    Recommendation: make sure ALL your class member functions work for both
+                    built-in and user-defined classes.
+
+  - In the .h file(s) there needs to be a comment block above the declaration
+    for both the Array<> and SafeArray<> that state all the constraints of
+    the template classes.  It should look something like this:
+
+        /*
+         * Constraints for the TYPE datatype for the Array<> template class:
+         *
+         *   - TYPE must support ...
+         *   - TYPE must support ...
+         *   ...
+         *
+         */
+        template<class TYPE>
+        class  Array
+        {
+          ...
+        };
+
+
+        /*
+         * Constraints for the TYPE datatype for the SafeArray<> template class:
+         *
+         *   ...
+         *
+         */
+        template<class TYPE>
+        class  SafeArray  ...
+        {
+          ...
+        };
+
+  - Add a new public member function called at() that takes an index value and
+    returns a reference to the element being modify. at() can then be used to
+    either read from, or write to, any element in the array. Like this:
+
+         Array<int>  numbers(5);
+
+         numbers.at(0)  =  7;   // stores 7 in the first element position
+
+         cout  <<  numbers.at(5);   // displays contents of last index
+                                    // position
+
+    Note: if at() is called for a SafeArray<> object, it should do bounds
+          checking. For Array<> objects it should not.
+
+    Do not eliminate the set() and get() member functions. These still need
+    to be in your Array and SafeArray classes. Their behavior does not
+    change from assignment #2.
+
+  - Change the copying behavior of Array<> and SafeArray<> so that a
+    "shallow" copy is performed instead of a "deep" copy. You are to
+    use a reference counting class to accomplish this.
+
+
+Thing's I'm looking for:
+
+  - Everything I was looking for assignment #2 plus...
+
+  - Proper use of templates.
+
+  - Proper use return-by-reference.
+
+  - Proper use of copy constructors and reference counting
+    to achieve "shallow" copying behavior. Note: this includes
+    proper dynamic memory management so that there's no
+    memory leaks or excess memory used.
+
+  - Good programming style (see the assignments web page for more information
+    on style).
+
+
+What to send me:
+
+  Send me the source code files you implement for this project.
+
+  Here's a suggestion as to the possible source code files
+  you'll need to implement for this assignment:
+
+    array.h - template class declarations
+    array.inc - template class function bodies
+    refCounter.h - reference counting class declaration
+    refCounter.cpp - reference counting class implementation
+
+
+Testing recommendation:
+
+  THE most common problems I find with template assignments
+  can be identified by doing a thorough job of testing ALL
+  member functions for template classes with BOTH built-in and
+  user-defined data types. Don't fall victim to template
+  euphoria.

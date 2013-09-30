@@ -1,0 +1,265 @@
+
+CST 136 - Assignment 4
+
+----------
+
+You are to provide the implementation of a class called Complex that
+can be used to represent complex numbers. Complex numbers have two
+parts: a real part and an imaginary part. Complex numbers are typically
+represented as follows:
+
+  a + bi
+
+  a - the real portion of the complex number
+  b - the imaginary portion of the complex number
+  i - a constant representing the square root of -1
+
+  a and b can be positive or negative floating point values.
+
+Your class should have member variables to represent the real
+and imaginary portions of a complex number.
+
+Your Complex class should have at least the following member
+functions publicly available:
+
+  Complex()    Constructor: takes a real and an imaginary floating
+               point value. Both values should be defaulted to 0.0.
+
+  real()       Returns the floating-point real number portion of the
+               complex number.
+
+  imaginary()  Returns the floating-point imaginary portion of the
+               complex number.
+
+The following operators need to be provided for your Complex class
+
+  - stream insertion operator (see below for more information):
+      <<
+
+  - stream extraction operator (see below for more information):
+      >>
+
+  - these four arithmetic operators (see below for forumulas):
+      +  -  *  /
+
+  - these four arithmetic assignment operators:
+      +=  -=  *=  /=
+
+  - these comparison operators for the class (see below for
+    more information):
+      ==  !=  <  <=  >  >=
+
+  - unary negation (see below for more information):
+      -
+
+
+Arithmetic formulas
+-------------------
+
+Here are the basic arithmetic formulas for complex numbers:
+
+Addition:
+   (a + bi) + (c + di) = (a + c) + (b + d)i
+
+Subtraction:
+   (a + bi) - (c + di)= (a - c) + (b - d)i
+
+Multiplication:
+   (a + bi)(c + di) = (ac - bd) + (ad + bc)i
+
+Division:
+   (a + bi)     (ac + bd)   (bc - ad)i
+   --------  =  --------- + ----------
+   (c + di)     (c2 + d2)   (c2 + d2)
+
+  Note: c2 above means c squared
+        d2 above means d squared
+
+
+Comparsion
+----------
+
+Two complex numbers are considered equal if their real
+number values are equal AND their imginary values are
+equal.
+
+For less-than, consider these two complex numbers:
+
+  a + bi    <--- first
+  c + di    <--- second
+
+First is less than second if:
+
+        a < c
+
+         or
+
+   a = c AND b < d
+
+
+
+Negation
+--------
+
+If the orginal complex number is:
+
+  a + bi
+
+then the negated value would be:
+
+  -a - bi
+
+
+Input formats
+-------------
+
+The stream extraction operator should read complex numbers
+of the following format:
+
+  a + bi
+
+You can make the following assumptions about values that are
+being read from an input stream:
+
+  - the real number (a) and imaginary number (b):
+      o will always exist in the input stream, even if they are zero
+      o can be integer or floating point values
+      o could be negative or positive
+
+  - the operator will be a single character and will be either
+    a '+' character or a '-' character
+
+  - there will be an 'i' character immediately following the
+    imaginary number (b)
+
+  - there will be a space between the real number and the
+    operator character AND between the operator character and
+    the imaginary number
+
+No validation of input formats is required.
+
+Here are some valid complex numbers that should be able to
+be read in by your stream extraction operator:
+
+  5 + 2i
+  7 - 9i
+  0 + 3i
+  -3 + 0i
+  0 + 0i
+  -3 + 7.3i
+  14.9 + -3.1i
+  6.6 - -3.8i
+
+
+Output formats
+--------------
+
+Output of complex numbers should be in this format:
+
+  a + bi
+
+Except for in these conditions:
+
+   - if the real portion (a) is zero, then the real portion
+     and the operator should not be displayed.  This the only
+     circumstance where the imaginary portion (b) could be displayed
+     as negative.
+
+   - if the imaginary portion (b) is zero, then only the
+     real portion should be displayed.
+
+   - if the imaginary portion (b) is one, then only "i"
+     should be displayed, not b.
+
+Here are examples of complex numbers and what should be
+written by the stream insertion operator:
+
+   a + bi     what get's displayed
+  -------     --------------------
+   1 + 2i     1 + 2i
+   1 - 2i     1 - 2i
+  -1 + 2i     -1 + 2i
+  -1 - 2i     -1 - 2i
+   5 + 0i     5
+   0 + 5i     5i
+  0 + -5i     -5i
+   5 + 1i     5 + i
+   5 - 1i     5 - i
+   0 + 1i     i
+  0 + -1i     -i
+   0 + 0i     0
+
+
+
+Sample usage
+------------
+
+Here's a very simple program that shows how to use the Complex
+class with some of the member functions and operators:
+
+  int  main()
+  {
+    Complex  userValue;
+
+    cout  <<  "Enter a complex value (a + bi): ";
+
+    cin  >>  userValue;
+
+    cout  <<  "Negated: "  <<  -userValue  <<  endl;
+
+    cout  <<  "Addition:  "  <<  userValue + Complex(3.5, -8)  <<  endl;
+
+    if  ( Complex(-6, 5.2f) == userValue )
+      cout  <<  "Wow! It's equal."  <<  endl;
+
+    return  0;
+  }
+
+
+Recommendations
+---------------
+
+Think "natural and intuitive". If you find yourself struggling with
+figuring out the proper interface/signature for an operator function,
+think about how that operator naturally and intuitively works with
+the built in data types.
+
+Test thoroughly!  Make sure you test all your member functions and
+operators. I will.
+
+
+Things I'll be looking for
+--------------------------
+
+  - Everything I've looked for in previous assignments, plus...
+
+  - Implement your overloaded operators to support natural and intuitive use.
+    For example, arithmetic assignment operators should be able to be chained
+    liked this:
+
+       Complex  a, b, c, d;
+
+       ...
+
+       a  +=  b  *=  c / d;
+
+    Think about how the operator can be used with integers and make sure it
+    behaves the same way with Complex's.
+
+    If you're unsure how an overloaded operator should behave, ask me
+    for help.
+
+  - Proper operator overloading (ie. signatures, encapsulation).
+
+  - Use of friends only in situations where there is no other
+    way to gracefully provide the needed functionality.
+
+  - Reuse functionality whenever possible. For example: implement operator== and
+    operator< and then define all the other comparison operators in terms of
+    these two. If you find yourself duplicating code, look for a way to get
+    around doing that.
+
+  - const correctness, as always.
+
+  - Good programming style (see the assignments web page for more information
+    on style).
