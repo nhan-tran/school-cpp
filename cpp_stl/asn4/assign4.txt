@@ -1,0 +1,78 @@
+
+
+Assignment 4 (Anagrams - rewrite)
+
+
+Due: Monday, August 12th by 11:59pm
+
+
+You are to re-write assignment #1 using the C++ Standard Template
+Library. All the functionality requirements from assignment #1
+apply to this assignment (see assignment #1 handout if you don't
+remember what they are).
+
+The goal of this assignment is to implement the anagrams
+program in a compact (as few lines of code as possible) program.
+
+Here's a sample run of how your program should execute:
+
+  Enter dictionary file name: dictionary.txt
+
+  Enter a word: home
+    home does not have any anagrams
+
+  Enter a word: Crate
+    Anagrams: caret carte cater trace
+
+  Enter a word: gamse
+    gamse is not a valid word
+
+  Enter a word: quit
+
+Although you can use loops for this assignment if you want, try
+implementing it without the use of loops and instead use STL
+algorithms (this will use less lines of code than loops).
+
+You will likely need to use one loop in the main() program.
+Sometime like this:
+
+  while(true)
+  {
+    // Prompt for word from user
+
+    // Break out of loop if user entered "quit"
+
+    // do the anagram processing here (with no loops ... if possible)
+
+    // display the results
+  }
+
+
+You'll find a sample executable for this assignment on the assignments
+web page.
+
+
+If you have questions about how to do certain functionality without
+looping, don't hesitate to send me email.
+
+Note:  Putting some thought into implementing a few function
+objects for manipulating collections of data could make the
+resulting program quite graceful and short.
+
+For this assignment I'll be looking for:
+
+  - proper functionality
+
+  - good/proper use of STL components (containers, iterators, alogrithms,
+    functors, adapters).
+
+  - very few lines of executable code.  Use algorithms and function
+    objects! They'll save you lines of exectuable code.
+
+  - efficient execution (it shouldn't take more than a few seconds to
+    generate the anagram list).
+
+  - good programming style (const-correctness, good variable naming,
+    commenting, etc.)
+
+  - no goto statements or global variables
