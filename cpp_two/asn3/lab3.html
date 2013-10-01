@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+<h2 class="style2">CS162 Lab 3 Personal Organizer Version 2  </h2>
+<h3 class="style4">Do-Not List for All Labs in CS162: </h3>
+<ul>
+  <li>No  Global Variables (you can have global constants)</li>
+  <li>No  use of the stdio library (use iostream and fstream)</li>
+  <li>Instead  of the string class, you will be using arrays of characters and the cstring  library</li>
+</ul>
+<h3 class="style3">Things You Should Do: </h3>
+<ul>
+  <li>Follow the <a href="../module1/styleGuide.doc">style guide</a> for this class </li>
+  <li>Your  programs should always guard against bad data being entered by mistake</li>
+  <li>You  can always do more than the assignments require</li>
+</ul>
+<h3 class="style2">Goals for This Lab:</h3>
+<ul>
+  <li>Using class to model Abstract Data Type </li>
+  <li>OOP-Data Incapsulation </li>
+</ul>
+<h3 class="style2">Problem You Need to Solve for This Lab: (Same as Lab 2) </h3>
+<p>You have   noticed that there is a lot to do this term as we get familiar with C++ and   programming on a larger scale. With a full load of classes, you may have   many due dates to meet. Keeping track of everything   is important. You have decided to write a program that reads tasks from the user   and saves them in a data file to keep track of.</p>
+<h3 class="style2">What Your Program Should Do: (Same as Lab 2) </h3>
+Write an interactive text based   menu interface (using a loop) that will allow the user to
+<ul>
+  <li> Enter a   task or assignment</li>
+  <li>Display all of the tasks that are in the file</li>
+  <li>Find   a task by Course  </li>
+  <li>Quit</li>
+</ul>
+<p>For each task, you need to   keep track of:</p>
+<ul>
+  <li>Course Name   that it is for (e.g., CS162)</li>
+  <li>Description of   the assignment (e.g., Finish Lab 2)</li>
+  <li>Due date (e.g., 9/26/2009) </li>
+</ul>
+
+  <p>Allow the   program to keep looping until user wants to quit. When the program starts, it should load the tasks from external file (<span class="style6">&quot;tasks.txt&quot;</span>) into memory. When user enters the three items of a task, the program needs to read them in, save them in memory and eventually write them to the external data file (<span class="style6">&quot;tasks.txt&quot;</span>). The file format could look like: (The ';' is used as a delimiter or field seperator.) </p>
+  <p class="style1">CS162;Finish Lab 2;9/26/2009<br/>
+  CS201;Take Quiz 1;9/28/2009 </p>
+<blockquote><p class="style1">&#160; </p>
+</blockquote>
+<h3 class="style2">Some Implementation Requirements: (Different from Lab 2!!!) </h3>
+<ol>
+  <li>Use structs or class named <span class="style6">Task</span> to model task. You are encouraged in every way to use class to model task in this lab. If you do the work here, you will benefit from this in Lab 4 and 5. </li>
+  <li>Use class named <span class="style6">TaskList</span> to model the collection of tasks. </li>
+  <li>Use array of <span class="style6">Task</span> to implement <span class="style6">TaskList </span></li>
+  <li>When using class, please make sure you encapsulate the data which means make all the instance data member<span class="style6"> private</span> and provide accessor methods and mutator methods to access and manipulate the data.  </li>
+</ol>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<h3 class="style2">How  To Submit Your Work:</h3>
+<p><strong><em>First, “clean” your project by doing the following: </em></strong></p>
+<ul>
+  <li>execute <strong>Clean Solution</strong> in the <strong>Build</strong> menu </li>
+  <li>close Visual Studio, and then delete the <strong>.ncb</strong> file from your solution’s root folder </li>
+</ul>
+<p>After cleaning your project, compress it into a <strong>.zip</strong> file. Because you cleaned your project, your <strong>.zip</strong> file will be as small  as possible. Make sure you have your Zip application set to <em>preserve the  folder structure</em> of your project.
+  By doing these things, you will ensure your .zip file is as small as possible,  which will make both your upload and my download quicker. <br/>
+    <br/>
+    <strong><em>Submit the .zip file containing your cleaned project to Blackboard:</em></strong></p>
+<p>Upload  into the assignments section of Blackboard the zip file for your cleaned  project.&#160; Please be sure the source file  includes your name, assignment description and number, and date, as a program  comment!</p>
+<p>Be  certain to check that you completed the upload successfully. After you click  the Upload File button, you must also click the SUBMIT ASSIGNMENT button. This  is very easy to forget. You have been warned. I would recommend entering an  email address so you can be notified that the uploaded was completed  successfully.</p>
+<p>You  may upload as many versions as you wish prior to the due date. I will only see  and grade the last one. You won’t be able to upload assignments after due date.</p>
+
+
+</body></html>

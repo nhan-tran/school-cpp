@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="WordSection1">
+
+<h2><span style="color:#6600FF;">CS162
+Lab 4 Personal Organizer Version 3 </span></h2>
+
+<h3><i><span style="color:red;">Do-Not
+List for All Labs in CS162: </span></i></h3>
+
+<ul type="disc">
+ <li class="MsoNormal"><span>No Global Variables (you can have global constants)</span></li>
+ <li class="MsoNormal"><span>No use of the stdio library (use iostream and fstream)</span></li>
+ <li class="MsoNormal"><span>Instead of the string class, you will be using arrays
+     of characters and the cstring library</span></li>
+</ul>
+
+<h3><i><span style="color:lime;">Things
+You Should Do: </span></i></h3>
+
+<ul type="disc">
+ <li class="MsoNormal"><span>Follow the style guide for this class </span></li>
+ <li class="MsoNormal"><span>Your programs should always guard against bad data
+     being entered by mistake</span></li>
+ <li class="MsoNormal"><span>You can always do more than the assignments require</span></li>
+</ul>
+
+<h3><span style="color:#6600FF;">Goals
+for This Lab:</span></h3>
+
+<ul type="disc">
+ <li class="MsoNormal"><span>More about class and OOP </span></li>
+ <li class="MsoNormal"><span>Using pointers and dynamic memory; focusing on dynamic
+     arrays. </span></li>
+ <li class="MsoNormal"><span>Using memory leak detection tool </span></li>
+</ul>
+
+<h3><span style="color:#6600FF;">Problem
+You Need to Solve for This Lab: (Same as Lab 2) </span></h3>
+
+<p>You have noticed that there is a lot to do this term as we get familiar with
+C++ and programming on a larger scale. With a full load of classes, you may
+have many due dates to meet. Keeping track of everything is important. You have
+decided to write a program that reads tasks from the user and saves them in a
+data file to keep track of.</p>
+
+<h3><span style="color:#6600FF;">What
+Your Program Should Do: (Same as Lab 2) </span></h3>
+
+<p class="MsoNormal"><span>Write
+an interactive text based menu interface (using a loop) that will allow the
+user to </span></p>
+
+<ul type="disc">
+ <li class="MsoNormal"><span>Enter a task or assignment</span></li>
+ <li class="MsoNormal"><span>Display all of the tasks that are in the file</span></li>
+ <li class="MsoNormal"><span>Find a task by Course </span></li>
+ <li class="MsoNormal"><span>Quit</span></li>
+</ul>
+
+<p>For each task, you need to keep track of:</p>
+
+<ul type="disc">
+ <li class="MsoNormal"><span>Course Name that it is for (e.g., CS162)</span></li>
+ <li class="MsoNormal"><span>Description of the assignment (e.g., Finish Lab 2)</span></li>
+ <li class="MsoNormal"><span>Due date (e.g., 9/26/2009) </span></li>
+</ul>
+
+<p>Allow the program to keep looping until user wants to quit. When the program
+starts, it should load the tasks from external file (<span class="style61">"tasks.txt"</span>)
+into memory. When user enters the three items of a task, the program needs to
+read them in, save them in memory and eventually write them to the external
+data file (<span class="style61">"tasks.txt"</span>). The file format
+could look like: (The ';' is used as a delimiter or field seperator.) </p>
+
+<p class="style1">CS162;Finish Lab 2;9/26/2009<br>
+CS201;Take Quiz 1;9/28/2009 </p>
+
+<blockquote style="margin-top:5.0pt;margin-bottom:5.0pt;">
+
+<p class="style1">&nbsp; </p>
+
+</blockquote>
+
+<h3><span style="color:#6600FF;">Some
+Implementation Requirements: (Different from Lab 2 and Lab 3!!!) </span></h3>
+
+<ol start="1" type="1">
+ <li class="MsoNormal"><span>Use structs or class named </span><span class="style61"><span>Task</span></span><span> to model task. You
+     really should think about changing the struct to class if you have not
+     done so in Lab 2. </span></li>
+ <li class="MsoNormal"><span>Use class named </span><span class="style61"><span>TaskList</span></span><span> to model the collection
+     of tasks.</span></li>
+ <li class="MsoNormal"><span>Use <strong><i>dynamic</i></strong> array of </span><span class="style61"><span>Task</span></span><span> to implement </span><span class="style61"><span>TaskList</span></span><span>. </span></li>
+ <li class="MsoNormal"><span>Use <strong><i>dynamic </i></strong>character array to
+     model the strings in </span><span class="style61"><span>Task, </span></span><span>such as course name, task description and due date. The
+     character array should be the exact size as needed, e.g "CS162"
+     should use an charcter array of size 6 including '\0'. </span></li>
+ <li class="MsoNormal"><span>Use </span><span class="style61"><span>destructor</span></span><span> to deallocate the dynamic memory for the object. </span></li>
+ <li class="MsoNormal"><span>Make sure your program is "memory-leak-free"
+     by using the <a href="http://msdn.microsoft.com/en-us/library/e5ewb1h3.aspx">memory leak
+     detection tool</a>. Please view the video in the module for detailed
+     instructions about how to enable the tool in your program. </span></li>
+ <li class="MsoNormal"><span>When using class, please make sure you encapsulate the
+     data which means make all the instance data member</span><span class="style61"><span>
+     private</span></span><span>
+     and provide accessor methods and mutator methods to access and manipulate
+     the data. </span></li>
+</ol>
+
+<p class="MsoNormal"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+
+<h3><span style="color:#6600FF;">How
+To Submit Your Work:</span></h3>
+
+<p><em><b>First, “clean” your project by doing the following: </b></em></p>
+
+<ul type="disc">
+ <li class="MsoNormal"><span>execute <strong>Clean Solution</strong> in the <strong>Build</strong>
+     menu </span></li>
+ <li class="MsoNormal"><span>close Visual Studio, and then delete the <strong>.ncb</strong>
+     file from your solution’s root folder </span></li>
+</ul>
+
+<p>After cleaning your project, compress it into a <strong>.zip</strong> file.
+Because you cleaned your project, your <strong>.zip</strong> file will be as
+small as possible. Make sure you have your Zip application set to <em>preserve
+the folder structure</em> of your project. By doing these things, you will
+ensure your .zip file is as small as possible, which will make both your upload
+and my download quicker. <br>
+<br>
+<em><b>Submit the .zip file containing your cleaned project to Desire2Learn:</b></em></p>
+
+<p>Upload into the "Dropbox" section of Desire2Learn the zip file for
+your cleaned project.&nbsp; Please be sure the source file includes your name,
+assignment description and number, and date, as a program comment!</p>
+
+<p>Be certain to check that you completed the upload successfully. After you
+click the "Add" button, you must also click the "Submit"
+button at the bottom of the page. This is very easy to forget. You have been
+warned.</p>
+
+<p>You may upload as many versions as you wish prior to the due date. I will
+only see and grade the last one. You won’t be able to upload assignments after
+due date.</p>
+
+</div>
+
+
+
+
+</body></html>
