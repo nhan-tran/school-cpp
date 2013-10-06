@@ -1,0 +1,87 @@
+
+Nhan Tran
+11/12/12
+Lab2 Write Up
+
+
+
+Solution 1:
+
+I think the problem with solution 1 mainly rest on the spin lock that both the producer and the consumer uses.
+While most of the time it looks like it works perfectly, there will be situations that you can see where
+something can go wrong. Even before writing the program, I had questions on whether the spin lock will work
+correctly or not because both of these spin locks depend on one variable that triggers them. The problem I
+thought is that there are too many lines of code execution between changes in the dependent variable. Therefore,
+both the producer and consumer can run into executing their spin locks at roughly the same time with only
+a few lines of execution apart, but not enough to where either of them can change the dependent variable.
+When both the consumer and producer enter their spin locks neither of them will every come out of it and there
+would be a deadlock.
+
+
+Solution 2:
+
+When implementing solution 2 I had guessed that the output would be similar to solution 1 since the only thing
+that has changed was instead of the spin lock we replaced it with a semaphore. Indeed this was the case, for the
+most part solution 2 was just a better implementation of solution 1 eliminating the potential deadlock situation
+that could have occured. I have also noticed another thing with solution 2, which is that it seems to perform
+faster. Solution 1 kept repeatedly showing output in blocks of produced and consume:
+
+Produced wh[0]: 86
+Produced wh[1]: 48
+Produced wh[2]: 3
+Produced wh[3]: 42
+Produced wh[4]: 55
+Produced wh[5]: 92
+Produced wh[6]: 58
+Produced wh[7]: 7
+Produced wh[8]: 89
+Produced wh[9]: 53
+consumeItem: wh[0] 86
+consumeItem: wh[1] 48
+consumeItem: wh[2] 3
+consumeItem: wh[3] 42
+consumeItem: wh[4] 55
+consumeItem: wh[5] 92
+consumeItem: wh[6] 58
+consumeItem: wh[7] 7
+consumeItem: wh[8] 89
+consumeItem: wh[9] 53
+
+While solution 2 showed this, it also showed: (ItemCount here just keeps track of the # of items made by the producer)
+
+Produced wh[0]: 73 ItemCount: 11036
+consumeItem: wh[0] 73
+Produced wh[0]: 91 ItemCount: 11037
+consumeItem: wh[0] 91
+Produced wh[0]: 80 ItemCount: 11038
+consumeItem: wh[0] 80
+Produced wh[0]: 2 ItemCount: 11039
+consumeItem: wh[0] 2
+
+From this output, I think it shows solution 2 also performs faster than solution 1. I think the reason is because
+solution 1 both the producer and consumer is dependent on one variable it slows down the performance as both
+producer and consumer continously access that variable. Solution 2 on the other hand has the producer and consumer
+dependent on two different semaphores, which means they don't depend on the same thing and to a certain extent run
+independent of each other. That is why the output shows an item beign produced then taken out immediately after.
+
+The problem with solution 2 is that if there were multiple producers and consumers there could be data loss. 
+For example if the buffer is empty, two producers could potentially enter the same slot and write to the
+same slot. This means the first data would have been overwritten and lost, a consumer could have never gone in to
+get that data.
+
+
+Solution 3:
+
+In solution 3, an additional lock on top of the semaphore applied in solution 2 is used to solve the problem of
+multiple producers and consumers. The new lock, a mutex, is used to control the critical section ensuring only one
+thread can enter the critical section at a time. This completes the solutions needed for the consumer producer
+problem.
+
+
+
+
+
+
+
+
+
