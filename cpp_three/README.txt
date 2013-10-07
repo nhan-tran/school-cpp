@@ -1,1 +1,1 @@
-C++ III - Focus on object-oriented design and programming in C++.
+C++ III - Focus on object-oriented design and programming in C++. 
